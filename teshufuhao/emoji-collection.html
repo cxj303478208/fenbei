@@ -13,7 +13,7 @@
 
         body {
             font-family: 'Microsoft YaHei', Arial, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #f2f2f2;
             min-height: 100vh;
             padding: 20px;
         }
@@ -28,7 +28,7 @@
         }
 
         .header {
-            background: linear-gradient(45deg, #ff6b6b, #feca57);
+            background: #667eea;
             color: white;
             padding: 30px;
             text-align: center;
@@ -86,7 +86,7 @@
 
         .emoji-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
             gap: 10px;
         }
 
@@ -94,11 +94,11 @@
             background: #f8f9fa;
             border: 2px solid transparent;
             border-radius: 12px;
-            padding: 15px;
+            padding: 30px;
             text-align: center;
             cursor: pointer;
             transition: all 0.3s ease;
-            font-size: 24px;
+            font-size: 48px;
             position: relative;
             overflow: hidden;
         }
@@ -142,13 +142,13 @@
 
         @media (max-width: 768px) {
             .emoji-grid {
-                grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+                grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
                 gap: 8px;
             }
             
             .emoji-item {
-                padding: 12px;
-                font-size: 20px;
+                padding: 24px;
+                font-size: 40px;
             }
             
             .header h1 {
@@ -348,15 +348,34 @@
         let allCategories = [];
         let totalEmojisCount = 0;
 
+        // Search state and extra category
+        let isSearching = false;
+        let lastSearchCount = 0;
+
+        const frequentlyUsedCategory = [
+            "常用 | Frequently Used",
+            {
+                "常用 | Common": [
+                    "😀","😂","😊","😍","🥰","😘","😉","😎","😢","😭","😡","🤔",
+                    "🙏","👍","👎","✨","⭐","🔥","✅","❌","🎉","🎂","🍻","❤️",
+                    "💔","🚀","🌟","🔍","📌"
+                ]
+            }
+        ];
+
         // Initialize categories array
         function initializeCategories() {
             allCategories = Object.entries(emojiData);
-            // Count total emojis
+            // Count total emojis (base + frequently used)
             totalEmojisCount = 0;
             for (const [categoryName, subcategories] of allCategories) {
                 for (const [subName, emojis] of Object.entries(subcategories)) {
                     totalEmojisCount += emojis.length;
                 }
+            }
+            // Include frequently used
+            for (const [subName, emojis] of Object.entries(frequentlyUsedCategory[1])) {
+                totalEmojisCount += emojis.length;
             }
         }
 
@@ -429,6 +448,10 @@
         function updateStats() {
             const loadedEmojis = calculateLoadedEmojis();
             const statsElement = document.getElementById('stats');
+            if (isSearching) {
+                statsElement.textContent = `找到 ${lastSearchCount} 个匹配 | Found ${lastSearchCount} matches`;
+                return;
+            }
             if (loadedCategories < allCategories.length) {
                 statsElement.innerHTML = `已加载 ${loadedEmojis} 个表情符号，共 ${totalEmojisCount} 个 | Loaded ${loadedEmojis} of ${totalEmojisCount} emojis<br><small>继续滚动加载更多分类...</small>`;
             } else {
@@ -439,6 +462,10 @@
         // Calculate loaded emojis count
         function calculateLoadedEmojis() {
             let count = 0;
+            // Include frequently used category
+            for (const [subName, emojis] of Object.entries(frequentlyUsedCategory[1])) {
+                count += emojis.length;
+            }
             for (let i = 0; i < loadedCategories; i++) {
                 const [categoryName, subcategories] = allCategories[i];
                 for (const [subName, emojis] of Object.entries(subcategories)) {
@@ -491,6 +518,7 @@
 
         // Scroll event handler for lazy loading
         function handleScroll() {
+            if (isSearching) return;
             if (loadedCategories >= allCategories.length) return;
             
             const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -506,42 +534,90 @@
         // Initial render
         function renderEmojis() {
             initializeCategories();
+            // Render frequently used category first
+            renderCategory(frequentlyUsedCategory[0], frequentlyUsedCategory[1]);
             loadMoreCategories();
         }
 
-        // Search functionality
+        // Search functionality（跨全量数据构建搜索结果）
         function setupSearch() {
             const searchInput = document.getElementById('searchInput');
-            searchInput.addEventListener('input', (e) => {
-                const query = e.target.value.toLowerCase();
-                const emojiItems = document.querySelectorAll('.emoji-item');
-                const categories = document.querySelectorAll('.category');
-                
-                if (query === '') {
-                    // Show all
-                    emojiItems.forEach(item => item.style.display = 'block');
-                    categories.forEach(cat => cat.style.display = 'block');
-                } else {
-                    // Filter emojis
-                    categories.forEach(category => {
-                        const categoryTitle = category.querySelector('.category-title').textContent.toLowerCase();
-                        const visibleEmojis = [];
-                        
-                        const emojisInCategory = category.querySelectorAll('.emoji-item');
-                        emojisInCategory.forEach(item => {
-                            const emoji = item.textContent;
-                            if (emoji.includes(query) || categoryTitle.includes(query)) {
-                                item.style.display = 'block';
-                                visibleEmojis.push(item);
-                            } else {
-                                item.style.display = 'none';
-                            }
-                        });
-                        
-                        // Hide category if no visible emojis
-                        category.style.display = visibleEmojis.length > 0 ? 'block' : 'none';
-                    });
+            let debounceTimer;
+
+            function clearSearchResults() {
+                const results = document.getElementById('searchResults');
+                if (results) results.remove();
+                isSearching = false;
+                lastSearchCount = 0;
+                // Show categories back
+                document.querySelectorAll('.category').forEach(cat => cat.style.display = 'block');
+                updateStats();
+            }
+
+            function performSearch(query) {
+                const content = document.getElementById('content');
+                let results = document.getElementById('searchResults');
+                if (!results) {
+                    results = document.createElement('div');
+                    results.id = 'searchResults';
+                    content.insertBefore(results, content.firstChild);
                 }
+                results.innerHTML = '';
+                isSearching = true;
+
+                const titleDiv = document.createElement('div');
+                titleDiv.className = 'category-title';
+                titleDiv.textContent = '搜索结果 | Search Results';
+                results.appendChild(titleDiv);
+
+                const gridDiv = document.createElement('div');
+                gridDiv.className = 'emoji-grid';
+                results.appendChild(gridDiv);
+
+                const q = query.toLowerCase();
+                lastSearchCount = 0;
+
+                function addEmoji(emoji) {
+                    const emojiDiv = document.createElement('div');
+                    emojiDiv.className = 'emoji-item';
+                    emojiDiv.textContent = emoji;
+                    emojiDiv.title = `点击复制 ${emoji}`;
+                    emojiDiv.addEventListener('click', () => copyToClipboard(emoji));
+                    gridDiv.appendChild(emojiDiv);
+                    lastSearchCount++;
+                }
+
+                const sources = [frequentlyUsedCategory, ...Object.entries(emojiData)];
+                sources.forEach(([categoryName, subcategories]) => {
+                    const catMatch = categoryName.toLowerCase().includes(q);
+                    for (const [subName, emojis] of Object.entries(subcategories)) {
+                        const subMatch = subName.toLowerCase().includes(q);
+                        if (catMatch || subMatch) {
+                            emojis.forEach(addEmoji);
+                        } else {
+                            emojis.forEach(emoji => {
+                                if (emoji.includes(query)) addEmoji(emoji);
+                            });
+                        }
+                    }
+                });
+
+                // Hide original categories & stop loading indicator
+                document.querySelectorAll('.category').forEach(cat => cat.style.display = 'none');
+                hideLoadingIndicator();
+                updateStats();
+            }
+
+            searchInput.addEventListener('input', (e) => {
+                const query = e.target.value.trim();
+                clearTimeout(debounceTimer);
+                debounceTimer = setTimeout(() => {
+                    if (query === '') {
+                        clearSearchResults();
+                    } else {
+                        performSearch(query);
+                    }
+                }, 150);
             });
         }
 
