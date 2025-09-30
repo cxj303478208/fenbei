@@ -86,28 +86,42 @@
 
         .emoji-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-            gap: 10px;
+            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+            gap: 6px;
+            justify-items: center;
+            align-items: center;
         }
 
         .emoji-item {
-            background: #f8f9fa;
-            border: 2px solid transparent;
-            border-radius: 12px;
-            padding: 30px;
+            background: transparent;
+            border: none;
+            border-radius: 8px;
+            padding: 2px 2px 4px;
             text-align: center;
             cursor: pointer;
             transition: all 0.3s ease;
             font-size: 48px;
+            line-height: 1.2;
+            font-family: "Segoe UI Emoji", "Noto Color Emoji", "Apple Color Emoji", "Segoe UI Symbol", sans-serif;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: max-content;
+            justify-self: center;
             position: relative;
-            overflow: hidden;
+            overflow: visible;
+        }
+
+        .emoji-char {
+            display: block;
+            line-height: 1;
+            white-space: nowrap;
         }
 
         .emoji-item:hover {
-            background: #667eea;
-            border-color: #667eea;
+            background: rgba(102, 126, 234, 0.12);
+            box-shadow: 0 0 0 1px #667eea, 0 10px 20px rgba(102, 126, 234, 0.3);
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
         }
 
         .emoji-item:active {
@@ -142,12 +156,12 @@
 
         @media (max-width: 768px) {
             .emoji-grid {
-                grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-                gap: 8px;
+                grid-template-columns: repeat(auto-fill, minmax(72px, 1fr));
+                gap: 6px;
             }
             
             .emoji-item {
-                padding: 24px;
+                padding: 2px 2px 4px;
                 font-size: 40px;
             }
             
@@ -406,7 +420,10 @@
                 emojis.forEach(emoji => {
                     const emojiDiv = document.createElement('div');
                     emojiDiv.className = 'emoji-item';
-                    emojiDiv.textContent = emoji;
+                    const span = document.createElement('span');
+                    span.className = 'emoji-char';
+                    span.textContent = emoji;
+                    emojiDiv.appendChild(span);
                     emojiDiv.title = `点击复制 ${emoji}`;
                     emojiDiv.addEventListener('click', () => copyToClipboard(emoji));
                     gridDiv.appendChild(emojiDiv);
@@ -580,7 +597,10 @@
                 function addEmoji(emoji) {
                     const emojiDiv = document.createElement('div');
                     emojiDiv.className = 'emoji-item';
-                    emojiDiv.textContent = emoji;
+                    const span = document.createElement('span');
+                    span.className = 'emoji-char';
+                    span.textContent = emoji;
+                    emojiDiv.appendChild(span);
                     emojiDiv.title = `点击复制 ${emoji}`;
                     emojiDiv.addEventListener('click', () => copyToClipboard(emoji));
                     gridDiv.appendChild(emojiDiv);
