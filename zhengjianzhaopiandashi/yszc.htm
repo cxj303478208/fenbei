@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>隐私政策 / Privacy Policy - 证件照大师</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        .lang-switch {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            overflow: hidden;
+        }
+        .lang-switch button {
+            padding: 10px 20px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        .lang-switch button.active {
+            background: #3498db;
+            color: white;
+        }
+        .lang-switch button:hover:not(.active) {
+            background: #ecf0f1;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 80px 20px 40px;
+        }
+        .content {
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .lang-content {
+            display: none;
+        }
+        .lang-content.active {
+            display: block;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+            font-size: 32px;
+        }
+        h2 {
+            color: #34495e;
+            margin-top: 35px;
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+        h3 {
+            color: #7f8c8d;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        ul {
+            margin-bottom: 15px;
+            padding-left: 30px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .update-date {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-bottom: 25px;
+            font-size: 14px;
+        }
+        .highlight {
+            background-color: #fff3cd;
+            padding: 20px;
+            border-left: 4px solid #ffc107;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+        .contact {
+            background-color: #e8f4f8;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 30px;
+        }
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        strong {
+            color: #2c3e50;
+        }
+        @media (max-width: 768px) {
+            .content {
+                padding: 25px;
+            }
+            h1 {
+                font-size: 26px;
+            }
+            h2 {
+                font-size: 20px;
+            }
+            .lang-switch {
+                top: 10px;
+                right: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="lang-switch">
+        <button onclick="switchLang('zh')" id="btn-zh" class="active">中文</button>
+        <button onclick="switchLang('en')" id="btn-en">English</button>
+    </div>
+
+    <div class="container">
+        <div class="content">
+            <!-- 中文版本 -->
+            <div id="content-zh" class="lang-content active">
+                <h1>隐私政策</h1>
+                <p class="update-date">最后更新日期：2025年1月12日</p>
+
+                <div class="highlight">
+                    <strong>重要提示：</strong>证件照大师（以下简称"我们"）非常重视您的隐私保护。请仔细阅读本隐私政策，了解我们如何收集、使用、存储和保护您的个人信息。
+                </div>
+
+                <h2>1. 信息收集</h2>
+                
+                <h3>1.1 我们收集的信息</h3>
+                <p>为了提供证件照制作服务，我们可能收集以下信息：</p>
+                <ul>
+                    <li><strong>照片信息：</strong>您主动上传或拍摄的照片，用于证件照处理</li>
+                    <li><strong>设备信息：</strong>设备型号、操作系统版本、唯一设备标识符</li>
+                    <li><strong>使用数据：</strong>应用使用情况、功能偏好、崩溃日志</li>
+                    <li><strong>存储权限：</strong>用于保存处理后的照片到您的设备</li>
+                    <li><strong>相机权限：</strong>用于拍摄证件照</li>
+                </ul>
+
+                <h3>1.2 我们不收集的信息</h3>
+                <ul>
+                    <li>我们不会收集您的姓名、身份证号、电话号码等个人身份信息</li>
+                    <li>我们不会访问您设备上的其他照片（除非您主动选择）</li>
+                    <li>我们不会收集您的位置信息</li>
+                    <li>我们不会收集您的通讯录或联系人信息</li>
+                </ul>
+
+                <h2>2. 信息使用</h2>
+                
+                <h3>2.1 使用目的</h3>
+                <p>我们收集的信息仅用于以下目的：</p>
+                <ul>
+                    <li><strong>提供服务：</strong>处理您的照片，生成证件照</li>
+                    <li><strong>改进功能：</strong>分析使用数据，优化应用性能和用户体验</li>
+                    <li><strong>技术支持：</strong>诊断和修复技术问题</li>
+                    <li><strong>安全保障：</strong>检测和防止欺诈、滥用行为</li>
+                </ul>
+
+                <h3>2.2 云端服务</h3>
+                <p>当您使用以下功能时，照片可能会临时上传到第三方服务器：</p>
+                <ul>
+                    <li><strong>阿里云抠图：</strong>照片临时上传到阿里云OSS，处理完成后自动删除（24小时内）</li>
+                    <li><strong>Remove.bg抠图：</strong>照片临时上传到Remove.bg服务器进行处理</li>
+                    <li><strong>本地抠图（ONNX/MODNet）：</strong>完全在设备本地处理，不上传任何数据</li>
+                    <li><strong>谷歌ML Kit：</strong>完全在设备本地处理，不上传任何数据</li>
+                </ul>
+                <p><strong>重要：</strong>我们不会永久存储您上传的照片。云端处理完成后，照片会立即从服务器删除。</p>
+
+                <h2>3. 信息存储与安全</h2>
+                
+                <h3>3.1 本地存储</h3>
+                <ul>
+                    <li>处理后的照片仅保存在您的设备本地存储中</li>
+                    <li>您可以随时通过设备文件管理器删除这些照片</li>
+                    <li>应用缓存数据存储在应用私有目录，其他应用无法访问</li>
+                </ul>
+
+                <h3>3.2 数据安全</h3>
+                <ul>
+                    <li>我们采用行业标准的加密技术保护数据传输（HTTPS/TLS）</li>
+                    <li>云端临时存储采用加密存储和访问控制</li>
+                    <li>定期进行安全审计和漏洞修复</li>
+                </ul>
+
+                <h3>3.3 数据保留</h3>
+                <ul>
+                    <li>本地照片：由您自行管理，应用不会自动删除</li>
+                    <li>云端临时文件：处理完成后立即删除，最长不超过24小时</li>
+                    <li>使用日志：匿名化后保留30天用于问题排查</li>
+                </ul>
+
+                <h2>4. 信息共享</h2>
+                
+                <h3>4.1 我们不会出售您的信息</h3>
+                <p>我们承诺不会向任何第三方出售、出租或交易您的个人信息。</p>
+
+                <h3>4.2 有限共享</h3>
+                <p>在以下情况下，我们可能与第三方共享必要信息：</p>
+                <ul>
+                    <li><strong>云服务提供商：</strong>阿里云、Remove.bg等，仅用于提供抠图服务</li>
+                    <li><strong>技术服务商：</strong>崩溃分析、性能监控等技术支持服务</li>
+                    <li><strong>法律要求：</strong>根据法律法规、法院命令或政府要求</li>
+                </ul>
+
+                <h3>4.3 第三方服务</h3>
+                <p>我们使用的第三方服务及其隐私政策：</p>
+                <ul>
+                    <li><strong>阿里云：</strong><a href="https://terms.aliyun.com/legal-agreement/terms/suit_bu1_ali_cloud/suit_bu1_ali_cloud202112071754_49729.html" target="_blank">阿里云隐私政策</a></li>
+                    <li><strong>Remove.bg：</strong><a href="https://www.remove.bg/privacy" target="_blank">Remove.bg Privacy Policy</a></li>
+                    <li><strong>Google ML Kit：</strong><a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a></li>
+                </ul>
+
+                <h2>5. 您的权利</h2>
+                <p>根据适用的隐私法律，您享有以下权利：</p>
+                <ul>
+                    <li><strong>访问权：</strong>查看我们收集的关于您的信息</li>
+                    <li><strong>更正权：</strong>要求更正不准确的信息</li>
+                    <li><strong>删除权：</strong>要求删除您的个人信息</li>
+                    <li><strong>撤回同意：</strong>随时撤回对数据处理的同意</li>
+                    <li><strong>数据可携带：</strong>以结构化格式获取您的数据</li>
+                    <li><strong>反对权：</strong>反对某些数据处理活动</li>
+                </ul>
+
+                <h2>6. 儿童隐私</h2>
+                <p>我们的服务面向13岁及以上的用户。我们不会故意收集13岁以下儿童的个人信息。如果您发现我们无意中收集了儿童信息，请立即联系我们，我们将尽快删除。</p>
+
+                <h2>7. 国际数据传输</h2>
+                <p>您的信息可能会被传输到您所在国家/地区以外的服务器。我们会确保这些传输符合适用的数据保护法律，并采取适当的安全措施。</p>
+
+                <h2>8. Cookie和追踪技术</h2>
+                <p>我们的应用不使用Cookie。我们可能使用以下技术：</p>
+                <ul>
+                    <li><strong>本地存储：</strong>保存应用设置和偏好</li>
+                    <li><strong>分析SDK：</strong>收集匿名使用统计数据</li>
+                </ul>
+                <p>您可以通过清除应用数据来删除这些信息。</p>
+
+                <h2>9. 隐私政策更新</h2>
+                <p>我们可能会不时更新本隐私政策。重大变更时，我们会通过以下方式通知您：</p>
+                <ul>
+                    <li>在应用内显示通知</li>
+                    <li>更新本页面的"最后更新日期"</li>
+                </ul>
+                <p>继续使用我们的服务即表示您接受更新后的隐私政策。</p>
+
+                <h2>10. 联系我们</h2>
+                <div class="contact">
+                    <p>如果您对本隐私政策有任何疑问、意见或请求，请通过以下方式联系我们：</p>
+                    <ul>
+                        <li><strong>电子邮件：</strong>privacy@idphoto-master.com</li>
+                        <li><strong>应用内反馈：</strong>设置 → 帮助与反馈 → 隐私问题</li>
+                    </ul>
+                    <p>我们将在收到您的请求后30天内回复。</p>
+                </div>
+
+                <h2>11. 适用法律</h2>
+                <p>本隐私政策受中华人民共和国法律管辖。如发生争议，双方应友好协商解决；协商不成的，任何一方可向我们所在地有管辖权的人民法院提起诉讼。</p>
+
+                <div class="highlight">
+                    <strong>您的信任对我们至关重要。</strong>我们承诺保护您的隐私，并持续改进我们的隐私保护措施。感谢您使用证件照大师！
+                </div>
+            </div>
+
+            <!-- 英文版本 -->
+            <div id="content-en" class="lang-content">
+                <h1>Privacy Policy</h1>
+                <p class="update-date">Last Updated: January 12, 2025</p>
+
+                <div class="highlight">
+                    <strong>Important Notice:</strong> ID Photo Master ("we", "us", or "our") takes your privacy seriously. Please read this Privacy Policy carefully to understand how we collect, use, store, and protect your personal information.
+                </div>
+
+                <h2>1. Information Collection</h2>
+                
+                <h3>1.1 Information We Collect</h3>
+                <p>To provide ID photo services, we may collect the following information:</p>
+                <ul>
+                    <li><strong>Photo Information:</strong> Photos you upload or capture for ID photo processing</li>
+                    <li><strong>Device Information:</strong> Device model, operating system version, unique device identifiers</li>
+                    <li><strong>Usage Data:</strong> App usage patterns, feature preferences, crash logs</li>
+                    <li><strong>Storage Permission:</strong> To save processed photos to your device</li>
+                    <li><strong>Camera Permission:</strong> To capture ID photos</li>
+                </ul>
+
+                <h3>1.2 Information We Do NOT Collect</h3>
+                <ul>
+                    <li>We do not collect your name, ID number, phone number, or other personal identification information</li>
+                    <li>We do not access other photos on your device (unless you actively select them)</li>
+                    <li>We do not collect your location information</li>
+                    <li>We do not collect your contacts or address book</li>
+                </ul>
+
+                <h2>2. How We Use Information</h2>
+                
+                <h3>2.1 Purpose of Use</h3>
+                <p>We use collected information only for the following purposes:</p>
+                <ul>
+                    <li><strong>Service Provision:</strong> Process your photos and generate ID photos</li>
+                    <li><strong>Feature Improvement:</strong> Analyze usage data to optimize app performance and user experience</li>
+                    <li><strong>Technical Support:</strong> Diagnose and fix technical issues</li>
+                    <li><strong>Security:</strong> Detect and prevent fraud and abuse</li>
+                </ul>
+
+                <h3>2.2 Cloud Services</h3>
+                <p>When you use the following features, photos may be temporarily uploaded to third-party servers:</p>
+                <ul>
+                    <li><strong>Aliyun Background Removal:</strong> Photos temporarily uploaded to Aliyun OSS, automatically deleted after processing (within 24 hours)</li>
+                    <li><strong>Remove.bg:</strong> Photos temporarily uploaded to Remove.bg servers for processing</li>
+                    <li><strong>Local Processing (ONNX/MODNet):</strong> Completely processed on-device, no data uploaded</li>
+                    <li><strong>Google ML Kit:</strong> Completely processed on-device, no data uploaded</li>
+                </ul>
+                <p><strong>Important:</strong> We do not permanently store your uploaded photos. Photos are immediately deleted from servers after cloud processing.</p>
+
+                <h2>3. Information Storage and Security</h2>
+                
+                <h3>3.1 Local Storage</h3>
+                <ul>
+                    <li>Processed photos are only saved to your device's local storage</li>
+                    <li>You can delete these photos anytime through your device's file manager</li>
+                    <li>App cache data is stored in the app's private directory, inaccessible to other apps</li>
+                </ul>
+
+                <h3>3.2 Data Security</h3>
+                <ul>
+                    <li>We use industry-standard encryption technology to protect data transmission (HTTPS/TLS)</li>
+                    <li>Cloud temporary storage uses encrypted storage and access control</li>
+                    <li>Regular security audits and vulnerability fixes</li>
+                </ul>
+
+                <h3>3.3 Data Retention</h3>
+                <ul>
+                    <li>Local photos: Managed by you, the app does not automatically delete them</li>
+                    <li>Cloud temporary files: Deleted immediately after processing, no longer than 24 hours</li>
+                    <li>Usage logs: Anonymized and retained for 30 days for troubleshooting</li>
+                </ul>
+
+                <h2>4. Information Sharing</h2>
+                
+                <h3>4.1 We Do Not Sell Your Information</h3>
+                <p>We promise not to sell, rent, or trade your personal information to any third party.</p>
+
+                <h3>4.2 Limited Sharing</h3>
+                <p>We may share necessary information with third parties in the following situations:</p>
+                <ul>
+                    <li><strong>Cloud Service Providers:</strong> Aliyun, Remove.bg, etc., only for background removal services</li>
+                    <li><strong>Technical Service Providers:</strong> Crash analysis, performance monitoring, and other technical support services</li>
+                    <li><strong>Legal Requirements:</strong> As required by laws, court orders, or government requests</li>
+                </ul>
+
+                <h3>4.3 Third-Party Services</h3>
+                <p>Third-party services we use and their privacy policies:</p>
+                <ul>
+                    <li><strong>Aliyun:</strong> <a href="https://terms.aliyun.com/legal-agreement/terms/suit_bu1_ali_cloud/suit_bu1_ali_cloud202112071754_49729.html" target="_blank">Aliyun Privacy Policy</a></li>
+                    <li><strong>Remove.bg:</strong> <a href="https://www.remove.bg/privacy" target="_blank">Remove.bg Privacy Policy</a></li>
+                    <li><strong>Google ML Kit:</strong> <a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a></li>
+                </ul>
+
+                <h2>5. Your Rights</h2>
+                <p>Under applicable privacy laws, you have the following rights:</p>
+                <ul>
+                    <li><strong>Access:</strong> View information we have collected about you</li>
+                    <li><strong>Correction:</strong> Request correction of inaccurate information</li>
+                    <li><strong>Deletion:</strong> Request deletion of your personal information</li>
+                    <li><strong>Withdraw Consent:</strong> Withdraw consent for data processing at any time</li>
+                    <li><strong>Data Portability:</strong> Obtain your data in a structured format</li>
+                    <li><strong>Object:</strong> Object to certain data processing activities</li>
+                </ul>
+
+                <h2>6. Children's Privacy</h2>
+                <p>Our service is intended for users aged 13 and above. We do not knowingly collect personal information from children under 13. If you discover that we have inadvertently collected information from children, please contact us immediately, and we will delete it as soon as possible.</p>
+
+                <h2>7. International Data Transfers</h2>
+                <p>Your information may be transferred to servers outside your country/region. We ensure that these transfers comply with applicable data protection laws and take appropriate security measures.</p>
+
+                <h2>8. Cookies and Tracking Technologies</h2>
+                <p>Our app does not use cookies. We may use the following technologies:</p>
+                <ul>
+                    <li><strong>Local Storage:</strong> Save app settings and preferences</li>
+                    <li><strong>Analytics SDK:</strong> Collect anonymous usage statistics</li>
+                </ul>
+                <p>You can delete this information by clearing app data.</p>
+
+                <h2>9. Privacy Policy Updates</h2>
+                <p>We may update this Privacy Policy from time to time. For significant changes, we will notify you through:</p>
+                <ul>
+                    <li>In-app notifications</li>
+                    <li>Updating the "Last Updated" date on this page</li>
+                </ul>
+                <p>Continued use of our services indicates your acceptance of the updated Privacy Policy.</p>
+
+                <h2>10. Contact Us</h2>
+                <div class="contact">
+                    <p>If you have any questions, comments, or requests regarding this Privacy Policy, please contact us through:</p>
+                    <ul>
+                        <li><strong>Email:</strong> privacy@idphoto-master.com</li>
+                        <li><strong>In-App Feedback:</strong> Settings → Help & Feedback → Privacy Issues</li>
+                    </ul>
+                    <p>We will respond to your request within 30 days.</p>
+                </div>
+
+                <h2>11. Governing Law</h2>
+                <p>This Privacy Policy is governed by the laws of the People's Republic of China. In case of disputes, parties should resolve them through friendly negotiation; if negotiation fails, either party may file a lawsuit with the people's court having jurisdiction over our location.</p>
+
+                <div class="highlight">
+                    <strong>Your trust is crucial to us.</strong> We are committed to protecting your privacy and continuously improving our privacy protection measures. Thank you for using ID Photo Master!
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function switchLang(lang) {
+            // 隐藏所有语言内容
+            document.querySelectorAll('.lang-content').forEach(el => {
+                el.classList.remove('active');
+            });
+            // 移除所有按钮的激活状态
+            document.querySelectorAll('.lang-switch button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // 显示选中的语言
+            document.getElementById('content-' + lang).classList.add('active');
+            document.getElementById('btn-' + lang).classList.add('active');
+            
+            // 更新页面语言属性
+            document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+            
+            // 保存用户选择
+            localStorage.setItem('preferredLang', lang);
+        }
+        
+        // 页面加载时恢复用户的语言选择
+        window.addEventListener('DOMContentLoaded', function() {
+            const savedLang = localStorage.getItem('preferredLang') || 'zh';
+            if (savedLang !== 'zh') {
+                switchLang(savedLang);
+            }
+        });
+    </script>
+</body>
+</html>
